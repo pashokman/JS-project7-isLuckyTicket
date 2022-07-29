@@ -10,18 +10,13 @@ const sumOfDigits = (str) => {
 
 const isLuckyTicket = (str) => {
 
-    if (str.length % 2 === 0) {
-        let firstHalf = str.slice(0, str.length / 2);
-        let secondHalf = str.slice(str.length / 2, str.length);
+    if (str.length % 2 !== 0) return `${str} - is not a LuckyTicket`;
+    
+    let firstHalf = str.slice(0, str.length / 2);
+    let secondHalf = str.slice(str.length / 2, str.length);
         
-        if (sumOfDigits(firstHalf) === sumOfDigits(secondHalf)) {
-            return `${str} - isLuckyTicket`;
-        } else {
-            return `${str} - is not a LuckyTicket`
-        }
-    } else {
-        return `${str} - is not a LuckyTicket`;
-    }
+    if (sumOfDigits(firstHalf) === sumOfDigits(secondHalf)) return `${str} - isLuckyTicket`;
+    return `${str} - is not a LuckyTicket`
 }
 
 console.log(isLuckyTicket('385916')); // true
